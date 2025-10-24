@@ -1,0 +1,7 @@
+name: Voltronic-Mqtt Add-on
+version: "0.1"
+slug: voltronic_addon
+description: "Add-on založený na existujícím Docker image"
+startup: services
+boot: auto
+image: "docker.io/ondrejva/voltronic-mqtt-test:0.0.1-x64"
