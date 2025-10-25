@@ -6,7 +6,6 @@ startup: services
 boot: auto
 image: "docker.io/ondrejva/voltronic-mqtt-test:0.0.1-x64"
 options:
-  my_variable: "default_value"
   serial_port: "/dev/ttyUSB0"
   report_interval: 1
   mqtt_server: "mqtt.example.com"
@@ -17,7 +16,6 @@ options:
   inverter_name: "inverter-voltronic"
   mqtt_client_id: "voltronic-mqtt"
 schema:
-  my_variable: str
   serial_port: str
   report_interval: int
   mqtt_server: str
@@ -28,7 +26,6 @@ schema:
   inverter_name: str
   mqtt_client_id: str
 environment:
-  MY_VARIABLE: !env_var my_variable
   SERIAL_PORT: !env_var serial_port
   REPORT_INTERVAL_S: !env_var report_interval
   MQTT_SERVER: !env_var mqtt_server
