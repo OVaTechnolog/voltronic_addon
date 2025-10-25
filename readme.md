@@ -1,4 +1,4 @@
-# "voltronic_addon" je Addon do HA.
+# "voltronic_addon" je addon do HA.
 
 ### Zdroj:
     - https://github.com/lavron/docker-voltronic-mqtt
@@ -10,6 +10,7 @@
     - V "config.yaml" je potřeba nastavit správnou cestu k Docker obrazu. Koncovka označuje architekturu procesoru, na kterém je Docker runtime spuštěn.
 
 ### Docker obraz:
+#### Tagy
 `    docker.io/ondrejva/voltronic-mqtt:0.0.1-x64`  
 `    docker.io/ondrejva/voltronic-mqtt:0.0.1-arm32v7`  
 `    docker.io/ondrejva/voltronic-mqtt:0.0.1-arm64v8`  
@@ -21,4 +22,23 @@
 `   docker.io/ondrejva/voltronic-mqtt-test:0.0.1-arm32v7`  
 `   docker.io/ondrejva/voltronic-mqtt-test:0.0.1-arm64v8`  
 
+#### Proměnné prostředí
+	SERIAL_PORT         priklad = /dev/ttyUSB0
+	REPORT_INTERVAL_S   vychozi = 1 s
+
+	MQTT_SERVER
+	MQTT_USER
+	MQTT_PASSWORD
+	MQTT_PORT           vychozi = 1883
+	MQTT_TOPIC_PREFIX   vychozi = homeassistant
+	INVERTER_NAME       vychozi = inverter
+
+	Neni ve zdrojaku Python, ale mozna ho bude potrebovat MQTT klient:
+	MQTT_CLIENT_ID      priklad = voltronic-mqtt
+
+#### Ruční spuštění
+    docker run --rm --name voltronic-mqtt -e SERIAL_PORT=/dev/ttyusb0 -e REPORT_INTERVAL_S=10 -e MQTT_SERVER=localhost -e MQTT_USER=user -e MQTT_PASSWORD=password -e MQTT_PORT=1883 -e MQTT_CLIENT_ID=voltronic-mqtt -e MQTT_TOPIC_PREFIX=homeassistant -e INVERTER_NAME=inverter docker.io/ondrejva/voltronic-mqtt:0.0.1-x64
+
+#### Komunikace po sériové lince
+    2400 Bd, timeout= 500 ms
 
