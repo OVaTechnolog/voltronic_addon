@@ -5,3 +5,37 @@ description: "Add-on založený na existujícím Docker image"
 startup: services
 boot: auto
 image: "docker.io/ondrejva/voltronic-mqtt-test:0.0.1-x64"
+options:
+  my_variable: "default_value"
+  serial_port: "/dev/ttyUSB0"
+  report_interval: 1
+  mqtt_server: "mqtt.example.com"
+  mqtt_user: "user"
+  mqtt_password: "password"
+  mqtt_port: 1883
+  mqtt_topic_prefix: "homeassistant"
+  inverter_name: "inverter-voltronic"
+  mqtt_client_id: "voltronic-mqtt"
+schema:
+  my_variable: str
+  serial_port: str
+  report_interval: int
+  mqtt_server: str
+  mqtt_user: str
+  mqtt_password: str
+  mqtt_port: int
+  mqtt_topic_prefix: str
+  inverter_name: str
+  mqtt_client_id: str
+environment:
+  MY_VARIABLE: !env_var my_variable
+  SERIAL_PORT: !env_var serial_port
+  REPORT_INTERVAL_S: !env_var report_interval
+  MQTT_SERVER: !env_var mqtt_server
+  MQTT_USER: !env_var mqtt_user
+  MQTT_PASSWORD: !env_var mqtt_password
+  MQTT_PORT: !env_var mqtt_port
+  MQTT_TOPIC_PREFIX: !env_var mqtt_topic_prefix
+  INVERTER_NAME: !env_var inverter_name
+  MQTT_CLIENT_ID: !env_var mqtt_client_id
+

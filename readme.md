@@ -8,6 +8,11 @@
     - "config.yaml" a "run.sh" by měly mít oddělovače řádků LF
     - Nastavit cestu k sériovému portu.
     - V "config.yaml" je potřeba nastavit správnou cestu k Docker obrazu. Koncovka označuje architekturu procesoru, na kterém je Docker runtime spuštěn.
+	- "config.yaml" / "startup" může nabývat hodnot "services" nebo "application"
+	- "config.yaml" / "options" definuje výchozí hodnoty, které může uživatel změnit.
+	- "config.yaml" / "schema" určuje typ proměnné.
+	- "config.yaml" / "environment" mapuje proměnnou do prostředí Docker kontejneru.
+	- Proměnné definované v "config.yaml" se dají měnit přes GUI Home Assistantu → Supervisor → Add-ons → Konfigurace.
 
 ### Docker obraz:
 #### Tagy
