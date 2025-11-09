@@ -4,7 +4,16 @@ slug: voltronic_addon
 description: "Add-on založený na existujícím Docker image"
 startup: services
 boot: auto
-image: "docker.io/ondrejva/voltronic-mqtt-test:0.0.1-x64"
+arch:
+- x64
+- arm32v7
+- arm64v8
+image: "docker.io/ondrejva/voltronic-mqtt-test:0.0.2-{arch}"
+init: false
+homeassistant_api: true
+full_access: true
+privileged:
+- SYS_RAWIO
 options:
   serial_port: "/dev/ttyUSB0"
   report_interval: 1
