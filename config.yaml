@@ -8,7 +8,7 @@ arch:
 - x64
 - arm32v7
 - arm64v8
-image: "docker.io/ondrejva/voltronic-mqtt-test:0.0.2-{arch}"
+image: "docker.io/ondrejva/voltronic-mqtt-test:0.0.5-{arch}"
 init: false
 homeassistant_api: true
 full_access: true
