@@ -42,7 +42,7 @@
 	MQTT_CLIENT_ID      priklad = voltronic-mqtt
 
 #### Ruční spuštění
-    docker run --rm --name voltronic-mqtt -e SERIAL_PORT=/dev/ttyusb0 -e REPORT_INTERVAL_S=10 -e MQTT_SERVER=localhost -e MQTT_USER=user -e MQTT_PASSWORD=password -e MQTT_PORT=1883 -e MQTT_CLIENT_ID=voltronic-mqtt -e MQTT_TOPIC_PREFIX=homeassistant -e INVERTER_NAME=inverter docker.io/ondrejva/voltronic-mqtt:0.0.5-x64
+    docker run --rm --name voltronic-mqtt -v /dev:/dev -e SERIAL_PORT=/dev/ttyusb0 -e REPORT_INTERVAL_S=10 -e MQTT_SERVER=localhost -e MQTT_USER=user -e MQTT_PASSWORD=password -e MQTT_PORT=1883 -e MQTT_CLIENT_ID=voltronic-mqtt -e MQTT_TOPIC_PREFIX=homeassistant -e INVERTER_NAME=inverter docker.io/ondrejva/voltronic-mqtt:0.0.5-x64
 
 #### Komunikace po sériové lince
     2400 Bd, timeout= 500 ms
